@@ -83,7 +83,11 @@ function handleEquals() {
  * @param {string} value - Цифра или точка, введённая пользователем.
  */
 function handleDigit(value) {
-  if(!operator) {
+  if (value === '.' && (!operator ? firstNumber.includes('.') : secondNumber.includes('.'))) {
+    return;
+  }
+
+  if (!operator) {
     firstNumber += value;
     display.value = firstNumber;
   } else {
